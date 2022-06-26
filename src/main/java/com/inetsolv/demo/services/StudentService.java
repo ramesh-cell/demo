@@ -1,4 +1,4 @@
-package com.inetsolv.demo;
+package com.inetsolv.demo.services;
 
 import com.inetsolv.demo.entities.Student;
 import com.inetsolv.demo.repositories.StudentRepository;
