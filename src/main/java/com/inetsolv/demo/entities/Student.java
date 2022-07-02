@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 
-@Document(collation = "student")
+@Document(collection = "student")
 public class Student {
     @Id
     private String id;
@@ -17,6 +17,7 @@ public class Student {
     @Field(name="mail")
     private String email;
 
+    @Field(name="department")
     private Department department;
 
     private List<Subject> subjects;
