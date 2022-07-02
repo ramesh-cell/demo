@@ -11,8 +11,8 @@ public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
-                  System.out.println("Hello from local 1001_test change V1");
-          
+                  System.out.println("Hello from local 1001_test change");
+
             
 	}
 
