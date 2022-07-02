@@ -1,10 +1,13 @@
 package com.inetsolv.demo.entities;
 
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Document(collection = "student")
@@ -12,12 +15,14 @@ public class Student {
     @Id
     private String id;
 
+    @NotNull
+    @NotEmpty
     private String name;
 
-    @Field(name="mail")
+    @Field(name = "mail")
     private String email;
 
-    @Field(name="department")
+    @Field(name = "department")
     private Department department;
 
     private List<Subject> subjects;
@@ -65,12 +70,12 @@ public class Student {
     }
 
     public double getPercentage() {
-        if (null != subjects &&subjects.size()>0){
-            int total =0;
-            for (Subject subject: subjects){
-                total+=subject.getMarksObtained();
+        if (null != subjects && subjects.size() > 0) {
+            int total = 0;
+            for (Subject subject : subjects) {
+                total += subject.getMarksObtained();
             }
-           return total/subjects.size();
+            return total / subjects.size();
         }
         return 0.0;
     }

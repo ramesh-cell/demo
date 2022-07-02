@@ -5,6 +5,7 @@ package com.inetsolv.demo.controller;
 import com.inetsolv.demo.services.StudentService;
 import com.inetsolv.demo.entities.Student;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -17,7 +18,7 @@ public class StudentController {
 	StudentService studentService;
 
 	@PostMapping("/create")
-	public Student createStudent(@RequestBody Student student) {
+	public Student createStudent(@RequestBody @Validated Student student) {
 		return studentService.createStudent(student);
 	}
 	
