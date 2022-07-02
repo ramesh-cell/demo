@@ -13,6 +13,7 @@ public class DemoApplication {
 		SpringApplication.run(DemoApplication.class, args);
 		System.out.println("Hello Spring");
 		System.out.println("Hello Spring again");
+		System.out.println("Hello Spring 1001 test");
 	}
 
 }
