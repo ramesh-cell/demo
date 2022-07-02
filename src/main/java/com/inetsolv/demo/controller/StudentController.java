@@ -88,4 +88,9 @@ public class StudentController {
 	public List<Student> nameStartsWith(@RequestParam String name) {
 		return studentService.nameStartsWith(name);
 	}
+
+	@GetMapping("/nameStartsWith")
+	public List<Student> nameStarts(@RequestParam String name) {
+		return studentService.nameStartsWith(name);
+	}
 }

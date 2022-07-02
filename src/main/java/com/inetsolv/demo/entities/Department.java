@@ -6,14 +6,14 @@ public class Department {
 
     @Field(name="department_name")
     private String departmentName;
-
+    @Field(name="location")
     private String location;
 
-    public String getDapartmentName() {
+    public String getDepartmentName() {
         return departmentName;
     }
 
-    public void setDapartmentName(String departmentName) {
+    public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
     }
 
