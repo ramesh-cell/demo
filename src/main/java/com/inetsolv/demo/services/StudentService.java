@@ -1,5 +1,6 @@
 package com.inetsolv.demo.services;
 
+import com.inetsolv.demo.entities.Department;
 import com.inetsolv.demo.entities.Student;
 import com.inetsolv.demo.repositories.DepartmentRepository;
 import com.inetsolv.demo.repositories.StudentRepository;
@@ -76,13 +77,13 @@ public class StudentService {
         return studentRepository.findAll(sort);
     }
 
-    public List<Student> byDepartmentName (String deptName) {
+ /*   public List<Student> byDepartmentName (String deptName) {
         return studentRepository.findByDepartmentDepartmentName(deptName);
     }
 
     public List<Student> bySubjectName (String subName) {
         return studentRepository.findBySubjectsSubjectName(subName);
-    }
+    }*/
 
     public List<Student> emailLike (String email) {
         return studentRepository.findByEmailIsLike(email);
@@ -92,4 +93,12 @@ public class StudentService {
         return studentRepository.findByNameStartsWith(name);
     }
 
+    public List<Student> byDepartmentId (String deptId) {
+        return studentRepository.findByDepartmentId(deptId);
+    }
+
+    public List<Department> findAllDepartment () {
+        return departmentRepository.findAll();
+    }
 }
+
