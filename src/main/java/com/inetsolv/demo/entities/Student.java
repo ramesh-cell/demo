@@ -4,6 +4,7 @@ package com.inetsolv.demo.entities;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
@@ -18,7 +19,7 @@ public class Student {
     @Id
     private String id;
 
-    @NotNull
+    @NotNull(message = "Not Null")
     @NotEmpty
     private String name;
 
@@ -26,9 +27,12 @@ public class Student {
     @Pattern(regexp = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$")
     private String email;
 
+    @DBRef
     @Field(name = "department")
     private Department department;
 
+
+   @DBRef
     private List<Subject> subjects;
     @Transient
     private double percentage;

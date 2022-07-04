@@ -1,7 +1,9 @@
 package com.inetsolv.demo.services;
 
 import com.inetsolv.demo.entities.Student;
+import com.inetsolv.demo.repositories.DepartmentRepository;
 import com.inetsolv.demo.repositories.StudentRepository;
+import com.inetsolv.demo.repositories.SubjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -16,9 +18,21 @@ public class StudentService {
     @Autowired
     StudentRepository studentRepository;
 
+    @Autowired
+    DepartmentRepository departmentRepository;
+
+    @Autowired
+    SubjectRepository subjectRepository;
+
     public Student createStudent (Student student) {
-        return studentRepository.save(student);
+        if (null!=student.getDepartment())
+            departmentRepository.save(student.getDepartment());
+        if (null!=student.getSubjects() && student.getSubjects().size()>0)
+            subjectRepository.saveAll(student.getSubjects());
+       return studentRepository.save(student);
+
     }
+
 
     public Student getStudentbyId(String id) {
         return studentRepository.findById(id).get();
@@ -42,10 +56,11 @@ public class StudentService {
     }
 
     public Student studentsByNameAndMail (String name, String email) {
+
         return studentRepository.findByEmailAndName(email, name);
     }
 
-    public Student studentsByNameOrMail (String name, String email) {
+    public List<Student> studentsByNameOrMail (String name, String email) {
         return studentRepository.findByNameOrEmail(name, email);
     }
 
@@ -76,4 +91,5 @@ public class StudentService {
     public List<Student> nameStartsWith (String name) {
         return studentRepository.findByNameStartsWith(name);
     }
+
 }
