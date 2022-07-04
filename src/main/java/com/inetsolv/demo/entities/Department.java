@@ -1,8 +1,15 @@
 package com.inetsolv.demo.entities;
 
+import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+import javax.persistence.Id;
+
+@Document(collection = "department")
 public class Department {
+
+    @Id
+    private String id;
 
     @Field(name="department_name")
     private String departmentName;

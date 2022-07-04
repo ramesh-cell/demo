@@ -12,7 +12,7 @@ public interface StudentRepository extends MongoRepository<Student,String> {
 
     List<Student> findByName(String name);
     Student findByEmailAndName(String email,String name);
-    Student findByNameOrEmail(String email,String name);
+    List<Student> findByNameOrEmail(String email,String name);
 
     List<Student> findByDepartmentDepartmentName(String deptname);
 
