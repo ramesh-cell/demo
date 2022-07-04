@@ -14,12 +14,14 @@ public interface StudentRepository extends MongoRepository<Student,String> {
     Student findByEmailAndName(String email,String name);
     List<Student> findByNameOrEmail(String email,String name);
 
-    List<Student> findByDepartmentDepartmentName(String deptname);
-
-    List<Student> findBySubjectsSubjectName(String subName);
+ /*   List<Student> findByDepartmentDepartmentName(String deptname);
+    List<Student> findBySubjectsSubjectName(String subName);*/
 
     List<Student> findByEmailIsLike(String email);
 
     List<Student> findByNameStartsWith(String name);
+
+    List<Student> findByDepartmentId(String deptId);
+
 
 }

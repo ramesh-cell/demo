@@ -1,6 +1,7 @@
 package com.inetsolv.demo.controller;
 
 
+import com.inetsolv.demo.entities.Department;
 import com.inetsolv.demo.entities.Student;
 import com.inetsolv.demo.services.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,7 +75,7 @@ public class StudentController {
         return studentService.allWithSorting();
     }
 
-    @GetMapping("/byDepartmentName")
+  /*  @GetMapping("/byDepartmentName")
     public List<Student> byDepartmentName(@RequestParam String deptName) {
         return studentService.byDepartmentName(deptName);
     }
@@ -82,7 +83,7 @@ public class StudentController {
     @GetMapping("/bySubjectName")
     public List<Student> bySubjectName(@RequestParam String subName) {
         return studentService.bySubjectName(subName);
-    }
+    }*/
 
     @GetMapping("/emailLike")
     public List<Student> emailLike(@RequestParam String email) {
@@ -94,4 +95,13 @@ public class StudentController {
         return studentService.nameStartsWith(name);
     }
 
+    @GetMapping("/byDepartmentId")
+    public List<Student> byDepartmentId(@RequestParam String deptId) {
+        return studentService.byDepartmentId(deptId);
+    }
+
+    @GetMapping("/findAllDepartment")
+    public List<Department> findAllDepartment() {
+        return studentService.findAllDepartment();
+    }
 }
